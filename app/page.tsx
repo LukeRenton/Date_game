@@ -72,7 +72,7 @@ export default function SubmitPage() {
             Double Date
           </h1>
           <p className="text-gray-400 text-sm mt-2">
-            Two facts about you. Keep it anonymous.
+            Two facts about you. Try not to make it obvious.
           </p>
         </div>
 
