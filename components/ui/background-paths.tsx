@@ -21,6 +21,7 @@ function FloatingPaths({ position }: { position: number }) {
       <svg
         className="w-full h-full text-slate-950"
         viewBox="0 0 696 316"
+        preserveAspectRatio="xMidYMid meet"
         fill="none"
       >
         <title>Background</title>

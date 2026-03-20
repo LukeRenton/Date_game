@@ -10,7 +10,7 @@ const geist = Geist({
 
 export const metadata: Metadata = {
   title: "Double Date",
-  description: "A party game for double dates",
+  description: "Lil icebreaker for saturday",
 };
 
 export const viewport: Viewport = {
