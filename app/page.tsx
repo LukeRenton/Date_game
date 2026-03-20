@@ -38,7 +38,7 @@ export default function SubmitPage() {
   if (submitted) {
     return (
       <div className="w-full max-w-md animate-fade-in">
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-10 text-center">
+        <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-sm border border-gray-100 p-10 text-center">
           <div className="mx-auto w-16 h-16 rounded-full border-2 border-black flex items-center justify-center mb-6">
             <svg
               width="24"
@@ -66,7 +66,7 @@ export default function SubmitPage() {
 
   return (
     <div className="w-full max-w-md animate-fade-in">
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-10">
+      <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-sm border border-gray-100 p-10">
         <div className="mb-10">
           <h1 className="text-3xl font-semibold tracking-tight">
             Double Date
