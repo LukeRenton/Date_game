@@ -1,18 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 function FloatingPaths({ position }: { position: number }) {
-  const paths = Array.from({ length: 36 }, (_, i) => ({
+  const paths = Array.from({ length: 16 }, (_, i) => ({
     id: i,
-    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
-      380 - i * 5 * position
-    } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
-      152 - i * 5 * position
-    } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
-      684 - i * 5 * position
-    } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-    width: 0.5 + i * 0.03,
+    d: `M-${380 - i * 12 * position} -${189 + i * 15}C-${
+      380 - i * 12 * position
+    } -${189 + i * 15} -${312 - i * 12 * position} ${216 - i * 15} ${
+      152 - i * 12 * position
+    } ${343 - i * 15}C${616 - i * 12 * position} ${470 - i * 15} ${
+      684 - i * 12 * position
+    } ${875 - i * 15} ${684 - i * 12 * position} ${875 - i * 15}`,
+    width: 0.5 + i * 0.05,
   }));
 
   return (
@@ -22,22 +23,22 @@ function FloatingPaths({ position }: { position: number }) {
         viewBox="0 0 696 316"
         fill="none"
       >
-        <title>Background Paths</title>
+        <title>Background</title>
         {paths.map((path) => (
           <motion.path
             key={path.id}
             d={path.d}
             stroke="currentColor"
             strokeWidth={path.width}
-            strokeOpacity={0.1 + path.id * 0.03}
-            initial={{ pathLength: 0.3, opacity: 0.6 }}
+            strokeOpacity={0.08 + path.id * 0.02}
+            initial={{ pathLength: 0.3, opacity: 0.5 }}
             animate={{
               pathLength: 1,
-              opacity: [0.3, 0.6, 0.3],
+              opacity: [0.2, 0.5, 0.2],
               pathOffset: [0, 1, 0],
             }}
             transition={{
-              duration: 20 + Math.random() * 10,
+              duration: 25 + Math.random() * 15,
               repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
             }}
@@ -49,6 +50,20 @@ function FloatingPaths({ position }: { position: number }) {
 }
 
 export function BackgroundPaths() {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  if (reducedMotion) {
+    return <div className="fixed inset-0 bg-white" />;
+  }
+
   return (
     <div className="fixed inset-0 overflow-hidden bg-white">
       <FloatingPaths position={1} />
