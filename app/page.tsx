@@ -126,7 +126,7 @@ export default function SubmitPage() {
             transition={{ delay: 0.4 }}
             className="text-gray-400 mt-3 text-base"
           >
-            Two facts about you. Try not to make it obvious.
+            Say two things about yourself (hopefully that no one knows). We&apos;ll try guess who said what.
           </motion.p>
         </div>
 
@@ -161,14 +161,14 @@ export default function SubmitPage() {
               htmlFor="fact1"
               className="block text-[11px] font-medium text-gray-400 uppercase tracking-widest mb-3"
             >
-              Fact one
+              Thing #1
             </label>
             <input
               id="fact1"
               type="text"
               value={fact1}
               onChange={(e) => setFact1(e.target.value)}
-              placeholder="Something surprising about you"
+              placeholder="Anything about yourself..."
               required
               className="w-full border-0 border-b-2 border-gray-200 bg-transparent py-3 text-lg sm:text-xl placeholder:text-gray-300 focus:border-black focus:ring-0 focus:outline-none transition-all duration-300"
             />
@@ -179,14 +179,14 @@ export default function SubmitPage() {
               htmlFor="fact2"
               className="block text-[11px] font-medium text-gray-400 uppercase tracking-widest mb-3"
             >
-              Fact two
+              Thing #2
             </label>
             <input
               id="fact2"
               type="text"
               value={fact2}
               onChange={(e) => setFact2(e.target.value)}
-              placeholder="Another one"
+              placeholder="Something else..."
               required
               className="w-full border-0 border-b-2 border-gray-200 bg-transparent py-3 text-lg sm:text-xl placeholder:text-gray-300 focus:border-black focus:ring-0 focus:outline-none transition-all duration-300"
             />
